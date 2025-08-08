@@ -18,14 +18,14 @@ contract Insurance {
         bool claimed;
     }
 
-    // Ayah → list polis
+    // Policyholder → list polis
     mapping(address => Polis[]) public polisByUser;
 
     // Event
     event PolisDibeli(address indexed insured, address indexed beneficiary, uint256 payout, uint256 duration);
     event PolisDiklaim(address indexed insured, address indexed beneficiary, uint256 amount);
 
-    // Beli satu polis untuk satu anak
+    // Beli satu polis untuk satu beneficiary
     function beliPolis(
         address beneficiary,
         uint256 payout,
@@ -34,7 +34,7 @@ contract Insurance {
         require(payout > 0, "Nominal tidak valid");
         require(beneficiary != address(0), "Beneficiary tidak valid");
 
-        // Transfer IDRX dari ayah ke smart contract
+        // Transfer IDRX dari policyholder ke smart contract
         require(
             idrx.transferFrom(msg.sender, address(this), payout),
             "Transfer IDRX gagal"
@@ -53,7 +53,7 @@ contract Insurance {
         emit PolisDibeli(msg.sender, beneficiary, payout, duration);
     }
 
-    // Klaim dana oleh siapa pun — tapi hanya cair ke anak
+    // Klaim dana oleh siapa pun — tapi hanya cair ke beneficiary
     function klaimPolis(address insured, uint256 index) external {
         require(index < polisByUser[insured].length, "Index tidak valid");
 
