@@ -61,7 +61,8 @@ contract Insurance {
 
         require(!p.claimed, "Sudah diklaim");
         require(block.timestamp >= p.startDate + p.duration, "Belum jatuh tempo");
-
+        require(msg.sender == p.beneficiary, "Bukan beneficiary");
+        require(idrx.balanceOf(address(this)) >= p.payout, "Tidak cukup IDRX di kontrak");
         p.claimed = true;
 
         require(
