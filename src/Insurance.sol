@@ -26,19 +26,12 @@ contract Insurance {
     event PolisDiklaim(address indexed insured, address indexed beneficiary, uint256 amount);
 
     // Beli satu polis untuk satu beneficiary
-    function beliPolis(
-        address beneficiary,
-        uint256 payout,
-        uint256 duration
-    ) external {
+    function beliPolis(address beneficiary, uint256 payout, uint256 duration) external {
         require(payout > 0, "Nominal tidak valid");
         require(beneficiary != address(0), "Beneficiary tidak valid");
 
         // Transfer IDRX dari policyholder ke smart contract
-        require(
-            idrx.transferFrom(msg.sender, address(this), payout),
-            "Transfer IDRX gagal"
-        );
+        require(idrx.transferFrom(msg.sender, address(this), payout), "Transfer IDRX gagal");
 
         Polis memory p = Polis({
             beneficiary: beneficiary,
@@ -65,10 +58,7 @@ contract Insurance {
         require(idrx.balanceOf(address(this)) >= p.payout, "Tidak cukup IDRX di kontrak");
         p.claimed = true;
 
-        require(
-            idrx.transfer(p.beneficiary, p.payout),
-            "Transfer klaim gagal"
-        );
+        require(idrx.transfer(p.beneficiary, p.payout), "Transfer klaim gagal");
 
         emit PolisDiklaim(insured, p.beneficiary, p.payout);
     }
@@ -79,13 +69,11 @@ contract Insurance {
     }
 
     // Getter untuk detail polis
-    function getPolis(address insured, uint256 index) external view returns (
-        address beneficiary,
-        uint256 payout,
-        uint256 startDate,
-        uint256 duration,
-        bool claimed
-    ) {
+    function getPolis(address insured, uint256 index)
+        external
+        view
+        returns (address beneficiary, uint256 payout, uint256 startDate, uint256 duration, bool claimed)
+    {
         require(index < polisByUser[insured].length, "Index tidak valid");
         Polis memory p = polisByUser[insured][index];
         return (p.beneficiary, p.payout, p.startDate, p.duration, p.claimed);

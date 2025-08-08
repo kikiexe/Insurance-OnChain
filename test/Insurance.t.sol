@@ -96,13 +96,8 @@ contract InsuranceTest is Test {
         insurance.beliPolis(beneficiary, 100 ether, 30 days);
         vm.stopPrank();
 
-        (
-            address polisBeneficiary,
-            uint256 payout,
-            uint256 startDate,
-            uint256 duration,
-            bool claimed
-        ) = insurance.getPolis(policyholder, 0);
+        (address polisBeneficiary, uint256 payout, uint256 startDate, uint256 duration, bool claimed) =
+            insurance.getPolis(policyholder, 0);
 
         assertEq(polisBeneficiary, beneficiary);
         assertEq(payout, 100 ether);
