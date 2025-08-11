@@ -1,0 +1,49 @@
+# =================================================================
+# === IGNORES GLOBAL / UMUM
+# =================================================================
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Editor & System Files
+.DS_Store
+.vscode/*
+!.vscode/extensions.json
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+
+# =================================================================
+# === FRONTEND (fe)
+# =================================================================
+/fe/node_modules
+/fe/dist
+/fe/dist-ssr
+/fe/.env
+/fe/*.local
+
+
+# =================================================================
+# === SMART CONTRACT (sc)
+# =================================================================
+# Dependencies & Build Output
+/sc/cache/
+/sc/out/
+/sc/lib/
+
+# Documentation
+/sc/docs/
+
+# Ignores development broadcast logs (aturan dari file Anda)
+/sc/broadcast/
+!/sc/broadcast/
+/sc/broadcast/*/31337/
+/sc/broadcast/**/dry-run/
