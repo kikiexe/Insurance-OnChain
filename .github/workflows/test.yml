@@ -25,19 +25,17 @@ jobs:
           forge --version
 
       - name: Run Forge fmt
-        working-directory: ./sc  # <-- DITAMBAHKAN
         run: |
           forge fmt --check
         id: fmt
 
       - name: Run Forge build
-        working-directory: ./sc  # <-- DITAMBAHKAN
         run: |
           forge build --sizes
         id: build
 
       - name: Run Forge tests
-        working-directory: ./sc  # <-- DITAMBAHKAN
+        working-directory: ./sc
         run: |
           forge test -vvv
         id: test
