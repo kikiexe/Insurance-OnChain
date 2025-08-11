@@ -1,7 +1,7 @@
 # =================================================================
-# === IGNORES GLOBAL / UMUM
+# === ATURAN GLOBAL / UMUM
 # =================================================================
-# Logs
+# File log
 *.log
 npm-debug.log*
 yarn-debug.log*
@@ -9,41 +9,40 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-# Editor & System Files
+# File sistem & editor
 .DS_Store
-.vscode/*
-!.vscode/extensions.json
-.idea
+.vscode/
+.idea/
 *.suo
-*.ntvs*
-*.njsproj
-*.sln
 *.sw?
 
 
 # =================================================================
-# === FRONTEND (fe)
+# === ATURAN UNTUK FRONTEND (fe/)
 # =================================================================
-/fe/node_modules
-/fe/dist
-/fe/dist-ssr
+# Folder dependensi
+/fe/node_modules/
+
+# Folder hasil build
+/fe/dist/
+/fe/dist-ssr/
+
+# File environment
 /fe/.env
-/fe/*.local
+/fe/.env.local
+/fe/.env.*.local
 
 
 # =================================================================
-# === SMART CONTRACT (sc)
+# === ATURAN UNTUK SMART CONTRACT (sc/)
 # =================================================================
-# Dependencies & Build Output
+# Folder dependensi, cache, dan build
 /sc/cache/
 /sc/out/
 /sc/lib/
 
-# Documentation
+# Folder dokumentasi (jika ada)
 /sc/docs/
 
-# Ignores development broadcast logs (aturan dari file Anda)
+# Folder log dari Foundry/Hardhat
 /sc/broadcast/
-!/sc/broadcast/
-/sc/broadcast/*/31337/
-/sc/broadcast/**/dry-run/
