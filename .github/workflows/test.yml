@@ -10,30 +10,41 @@ env:
 
 jobs:
   check:
-    name: Foundry project
+    name: Foundry Project
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      
+      - name: Checkout repository
+        uses: actions/checkout@v4
         with:
           submodules: recursive
 
-      - name: Update submodules
+      
+      - name: Pull submodules in sc
+        working-directory: ./sc
         run: git submodule update --init --recursive
 
+      
       - name: Install Foundry
         uses: foundry-rs/foundry-toolchain@v1
 
+      
       - name: Show Forge version
         run: forge --version
 
+      
       - name: Run Forge fmt
+        working-directory: ./sc
         run: forge fmt --check
         id: fmt
 
+      
       - name: Run Forge build
+        working-directory: ./sc
         run: forge build --sizes
         id: build
 
+      
       - name: Run Forge tests
         working-directory: ./sc
         run: forge test -vvv
