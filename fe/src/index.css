@@ -1,3 +1,41 @@
+/* index.css */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  body {
+    font-family: 'Inter', sans-serif;
+    /* Latar belakang gradien gelap yang halus */
+    background-color: #111827;
+    background-image: radial-gradient(at 47% 33%, hsl(200, 70%, 40%) 0, transparent 59%), 
+                      radial-gradient(at 82% 65%, hsl(215, 70%, 35%) 0, transparent 55%);
+    color: #e5e7eb; /* Warna teks off-white untuk kontras yang nyaman */
+  }
+}
+
+@layer components {
+  /* Efek Glassmorphism: Kaca buram */
+  .glass-card {
+    background: rgba(31, 41, 55, 0.5); /* Semi-transparent background */
+    backdrop-filter: blur(12px); /* Efek blur */
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Border tipis untuk definisi */
+    @apply rounded-2xl shadow-lg;
+  }
+
+  /* Tombol modern dengan gradien */
+  .btn-modern {
+    @apply px-5 py-2.5 font-semibold text-white rounded-lg transition-all duration-300 ease-in-out;
+  }
+
+  .btn-gradient-blue {
+    @apply btn-modern bg-gradient-to-r from-blue-500 to-cyan-500 hover:shadow-lg hover:shadow-cyan-500/50 transform hover:-translate-y-0.5;
+  }
+
+  .btn-gradient-red {
+    @apply btn-modern bg-gradient-to-r from-red-500 to-rose-500 hover:shadow-lg hover:shadow-rose-500/50 transform hover:-translate-y-0.5;
+  }
+}
