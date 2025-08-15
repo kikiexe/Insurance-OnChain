@@ -1,31 +1,22 @@
-Foundry
-Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.
+# Sathafy Insurance DApp
 
-Foundry consists of:
+Sathafy adalah aplikasi web (DApp) yang memungkinkan pengguna untuk memilih dan membeli berbagai jenis asuransi menggunakan wallet kripto.  
+Aplikasi ini dibangun dengan React, Vite, dan Tailwind CSS untuk tampilan modern dan responsif.
 
-Forge: Ethereum testing framework (like Truffle, Hardhat and DappTools).
-Cast: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
-Anvil: Local Ethereum node, akin to Ganache, Hardhat Network.
-Chisel: Fast, utilitarian, and verbose solidity REPL.
-Documentation
-https://book.getfoundry.sh/
+## Fitur Utama
 
-Usage
-Build
-$ forge build
-Test
-$ forge test
-Format
-$ forge fmt
-Gas Snapshots
-$ forge snapshot
-Anvil
-$ anvil
-Deploy
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-Cast
-$ cast <subcommand>
-Help
-$ forge --help
-$ anvil --help
-$ cast --help
+- **Connect Wallet:** Pengguna dapat menghubungkan wallet kripto untuk mulai menggunakan aplikasi.
+- **Pemilihan Asuransi:** Tersedia pilihan asuransi Dana Pensiun, Kesehatan, Pendidikan Berjangka, dan Jiwa.
+- **UI Modern:** Desain glassmorphism dan gradien, serta logo IDRX yang khas.
+- **Routing Dinamis:** Navigasi antar halaman menggunakan React Router.
+
+## Teknologi
+
+- React
+- Vite
+- Tailwind CSS
+- Ethers.js (untuk integrasi wallet)
+- React Icons
+---
+
+Dikembangkan untuk mendukung ekosistem asuransi berbasis blockchain di Indonesia.

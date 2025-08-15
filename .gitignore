@@ -21,7 +21,6 @@ lerna-debug.log*
 /fe/.env.*.local
 
 # Smart Contract (Foundry)
-# Cache & build outputs
 /sc/cache/
 /sc/out/
 /sc/docs/
