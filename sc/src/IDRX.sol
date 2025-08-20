@@ -6,7 +6,7 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 contract IDRX is ERC20, Ownable {
     constructor() ERC20("IDR eXperimental", "IDRX") Ownable(msg.sender) {
         // Mint 1 juta token untuk deployer saat awal
-        _mint(msg.sender, 1_000_000 * 10**18);
+        _mint(msg.sender, 1_000_000 * 10 ** 18);
     }
 
     function mint(address to, uint256 amount) external onlyOwner {

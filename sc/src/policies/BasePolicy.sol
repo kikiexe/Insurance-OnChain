@@ -11,18 +11,19 @@ abstract contract BasePolicy {
     uint256 public immutable payoutValue;
     IERC20 public immutable paymentToken; // Dulu IDRX, sekarang bisa token apa saja
 
-    enum Status { Pending, Active, Claimed, Expired }
+    enum Status {
+        Pending,
+        Active,
+        Claimed,
+        Expired
+    }
+
     Status public currentStatus;
 
     event PolicyActivated(address indexed policyHolder);
     event PolicyClaimed(address indexed beneficiary, uint256 amount);
 
-    constructor(
-        address _policyHolder,
-        address _beneficiary,
-        uint256 _payoutValue,
-        address _tokenAddress
-    ) {
+    constructor(address _policyHolder, address _beneficiary, uint256 _payoutValue, address _tokenAddress) {
         policyHolder = _policyHolder;
         beneficiary = _beneficiary;
         payoutValue = _payoutValue;

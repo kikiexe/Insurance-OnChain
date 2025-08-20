@@ -20,8 +20,9 @@ contract PolicyFactory {
         IERC20(idrxTokenAddress).transferFrom(msg.sender, address(this), _payoutValue);
 
         // 2. Deploy kontrak polis baru
-        EndowmentPolicy newPolicy = new EndowmentPolicy(msg.sender, _beneficiary, _payoutValue, idrxTokenAddress, _duration);
-        
+        EndowmentPolicy newPolicy =
+            new EndowmentPolicy(msg.sender, _beneficiary, _payoutValue, idrxTokenAddress, _duration);
+
         // 3. Kirim premi dari Factory ke kontrak polis baru tersebut
         IERC20(idrxTokenAddress).transfer(address(newPolicy), _payoutValue);
 
@@ -34,9 +35,9 @@ contract PolicyFactory {
     function createLifePolicy(address _beneficiary, uint256 _payoutValue, uint256 _premium) external {
         // Untuk asuransi jiwa, premi bisa berbeda dari payout
         IERC20(idrxTokenAddress).transferFrom(msg.sender, address(this), _premium);
-        
+
         LifePolicy newPolicy = new LifePolicy(msg.sender, _beneficiary, _payoutValue, idrxTokenAddress);
-        
+
         // Kirim dana ke polis baru
         IERC20(idrxTokenAddress).transfer(address(newPolicy), _premium);
 

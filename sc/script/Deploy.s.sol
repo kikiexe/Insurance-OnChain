@@ -7,7 +7,7 @@ import "../src/IDRX.sol";
 contract Deploy is Script {
     function run() external returns (PolicyFactory, address) {
         uint256 deployerPrivateKey = vm.envUint("PRIVATE_KEY");
-        
+
         vm.startBroadcast(deployerPrivateKey);
 
         IDRX idrxToken = new IDRX();
@@ -17,7 +17,7 @@ contract Deploy is Script {
         console.log("PolicyFactory deployed at:", address(factory));
 
         vm.stopBroadcast();
-        
+
         return (factory, address(idrxToken));
     }
 }

@@ -26,7 +26,7 @@ contract EndowmentPolicy is BasePolicy {
 
         currentStatus = Status.Claimed;
         emit PolicyClaimed(beneficiary, payoutValue);
-        
+
         // Kirim token IDRX
         require(paymentToken.transfer(beneficiary, payoutValue), "Transfer failed");
     }
