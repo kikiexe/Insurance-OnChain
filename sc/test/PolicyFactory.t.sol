@@ -93,7 +93,7 @@ contract PolicyFactoryTest is Test {
         vm.stopPrank();
 
         assertEq(idrx.balanceOf(beneficiary), 100 ether);
-    }
+    } 
 
     function test_RevertWhen_CreatePolicyWithNoBalance() public {
         address noBalanceHolder = address(0x3);
